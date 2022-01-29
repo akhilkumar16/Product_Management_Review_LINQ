@@ -35,6 +35,16 @@ namespace ProductReviewManagementWithLinq
                 Console.WriteLine("Product ID: " + list.ProductID + " " + "UserID: " + list.UserID + " " + "Rating: " + list.Rating + " " +
                     " Review: " + list.Review + " " + "islike: " + list.isLike);
             }
+
+            //uc2//
+            Console.WriteLine("\n Retrieve Top 3 Records from list \n");
+
+            Management management = new Management();
+
+            management.RetrieveTop3Records(ProductReviewlist);
+
+            Console.WriteLine("\n");
+
         }
     }
 }
