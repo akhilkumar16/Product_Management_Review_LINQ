@@ -45,6 +45,17 @@ namespace ProductReviewManagementWithLinq
 
             Console.WriteLine("\n");
 
+            ///<summary>
+            ///uc 3 
+            ///</summary>
+
+            Management abc = new Management();
+
+            abc.RetrieveRecordsWithGreaterThanThreeRating(ProductReviewlist);
+
+            Console.WriteLine("Uc 3 is printed ");
+            Console.ReadLine();
+
         }
     }
 }
