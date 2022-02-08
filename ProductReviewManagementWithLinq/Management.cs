@@ -73,9 +73,25 @@ namespace ProductReviewManagementWithLinq
                 var RecordedData = (from products in productReviewlist
                                     select products).Skip(5);
                 Console.WriteLine("\n Skiping the Top five records and Display others ");
-                foreach (var productReview in RecordedData) //traversing each items
+                foreach (var productReview in RecordedData) 
                 {
                     Console.WriteLine($"ProductId:- {productReview.ProductID}\tUserId:- {productReview.UserID}\tRating:- {productReview.Rating}\t  Review:- {productReview.Review}  \t    isLike:- {productReview.isLike}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void RetrieveProductIDAndReviewUsingLambdaSyntax(List<ProductReview> productReviewlist)
+        {
+            try
+            {                 
+                var RecordedData = productReviewlist.Select(reviews => new { ProductId = reviews.ProductID, Review = reviews.Review });
+                Console.WriteLine("\nRetrieving Product and Review from list");
+                foreach (var productReview in RecordedData) 
+                {
+                    Console.WriteLine($"ProductId:- {productReview.ProductId}\tReview:- {productReview.Review}");
                 }
             }
             catch (Exception ex)
