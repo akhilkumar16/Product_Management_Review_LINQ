@@ -64,22 +64,18 @@ namespace ProductReviewManagementWithLinq
             Management.RetrieveProductIDAndReviewOfAllRecords(ProductReviewlist);
 
             //UC6
-            //UC6
             Management.SkipTopFiveRecords(ProductReviewlist);
 
             //UC7
-            Management.RetrieveProductIDAndReviewUsingLambdaSyntax(productReviewlist);
+            Management.RetrieveProductIDAndReviewUsingLambdaSyntax(ProductReviewlist);
+            //UC8
+            Management.CreateDataTable();
         }
-
-
-        /* Class Program*/
-        public static void CreateDataTable()
+        public static void CreateDataTable() 
         {
-
             DataTable table = new DataTable(); 
             table.Columns.Add("ProductId");     
-            table.Columns.Add("ProductName"); 
-
+            table.Columns.Add("ProductName");
             table.Rows.Add("1", "Laptop"); 
             table.Rows.Add("2", "Mobile");
             table.Rows.Add("3", "Tablet");
