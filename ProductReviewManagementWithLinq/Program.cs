@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace ProductReviewManagementWithLinq
@@ -56,6 +57,31 @@ namespace ProductReviewManagementWithLinq
             Console.WriteLine("Uc 3 is printed ");
             Console.ReadLine();
 
+            //UC4
+            Management.RetrieveCountOfReviewForEachProductId(ProductReviewlist);
+        }
+        public static void CreateDataTable() 
+        {
+            DataTable table = new DataTable(); 
+            table.Columns.Add("ProductId");    
+            table.Columns.Add("ProductName");
+
+            table.Rows.Add("1", "Laptop"); 
+            table.Rows.Add("2", "Mobile");
+            table.Rows.Add("3", "Tablet");
+            table.Rows.Add("4", "Desktop");
+            table.Rows.Add("5", "Watch");
+            DisplayTableProduct(table);
+
+        }
+        public static void DisplayTableProduct(DataTable table) 
+        {
+            var Productname = from product in table.AsEnumerable() select product.Field<string>("ProductName"); 
+            foreach (var item in Productname) 
+            {
+                Console.WriteLine($"ProductName:- {item}"); 
+            }
         }
     }
 }
+

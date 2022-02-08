@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Data;
 
 namespace ProductReviewManagementWithLinq
 {
@@ -32,6 +33,15 @@ namespace ProductReviewManagementWithLinq
             {
                 Console.WriteLine("Product Id : " + list.ProductID + " || User Id : " + list.UserID + " || Rating : " + list.Rating 
                     + " || Review : " + list.Review + " || Is Like : " + list.isLike);
+            }
+        }
+        public static void RetrieveCountOfReviewForEachProductId(List<ProductReview> productReviewlist)
+        {
+            var RecordedData = (productReviewlist.GroupBy(p => p.ProductID).Select(x => new { ProductId = x.Key, Count = x.Count() }));
+            Console.WriteLine("\n Count group by ProductId");
+            foreach (var List in RecordedData)
+            {
+                Console.WriteLine($"ProductId:- {List.ProductId}   || Count :- {List.Count}");
             }
         }
     }
