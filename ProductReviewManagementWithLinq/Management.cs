@@ -44,5 +44,10 @@ namespace ProductReviewManagementWithLinq
                 Console.WriteLine($"ProductId:- {List.ProductId}   || Count :- {List.Count}");
             }
         }
+
+        internal static void RetrieveProductIDAndReviewOfAllRecords(object productReviewlist)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
