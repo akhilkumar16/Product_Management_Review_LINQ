@@ -62,6 +62,10 @@ namespace ProductReviewManagementWithLinq
 
             //UC5
             Management.RetrieveProductIDAndReviewOfAllRecords(ProductReviewlist);
+
+            //UC6
+            //UC6
+            Management.SkipTopFiveRecords(ProductReviewlist);
         }
         public static void CreateDataTable() 
         {

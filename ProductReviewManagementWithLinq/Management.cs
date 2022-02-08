@@ -45,9 +45,44 @@ namespace ProductReviewManagementWithLinq
             }
         }
 
-        internal static void RetrieveProductIDAndReviewOfAllRecords(object productReviewlist)
+        internal static void RetrieveProductIDAndReviewOfAllRecords(List<ProductReview> productReviewlist)
         {
             throw new NotImplementedException();
         }
+        public static void RetrieveProductIDReviewOfAllRecords(List<ProductReview> productReviewlist)
+        {
+            try
+            {
+                var RecordedData = (from products in productReviewlist
+                                    select new { ProductId = products.ProductID, Review = products.Review });
+                Console.WriteLine("Retrieving Product and Review from list:-");
+                foreach (var productReview in RecordedData)
+                {
+                    Console.WriteLine($"ProductID:-  {productReview.ProductId}  \t Review:-  { productReview.Review}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static void SkipTopFiveRecords(List<ProductReview> productReviewlist)
+        {
+            try
+            {
+                var RecordedData = (from products in productReviewlist
+                                    select products).Skip(5);
+                Console.WriteLine("\n Skiping the Top five records and Display others ");
+                foreach (var productReview in RecordedData) //traversing each items
+                {
+                    Console.WriteLine($"ProductId:- {productReview.ProductID}\tUserId:- {productReview.UserID}\tRating:- {productReview.Rating}\t  Review:- {productReview.Review}  \t    isLike:- {productReview.isLike}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
+
