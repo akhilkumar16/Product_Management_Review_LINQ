@@ -62,12 +62,23 @@ namespace ProductReviewManagementWithLinq
 
             //UC5
             Management.RetrieveProductIDAndReviewOfAllRecords(ProductReviewlist);
+
+            //UC6
+            //UC6
+            Management.SkipTopFiveRecords(ProductReviewlist);
+
+            //UC7
+            Management.RetrieveProductIDAndReviewUsingLambdaSyntax(productReviewlist);
         }
-        public static void CreateDataTable() 
+
+
+        /* Class Program*/
+        public static void CreateDataTable()
         {
+
             DataTable table = new DataTable(); 
-            table.Columns.Add("ProductId");    
-            table.Columns.Add("ProductName");
+            table.Columns.Add("ProductId");     
+            table.Columns.Add("ProductName"); 
 
             table.Rows.Add("1", "Laptop"); 
             table.Rows.Add("2", "Mobile");
@@ -82,9 +93,8 @@ namespace ProductReviewManagementWithLinq
             var Productname = from product in table.AsEnumerable() select product.Field<string>("ProductName"); 
             foreach (var item in Productname) 
             {
-                Console.WriteLine($"ProductName:- {item}"); 
+                Console.WriteLine($"ProductName:- {item}");
             }
         }
     }
 }
-
